@@ -30,7 +30,6 @@
 - SysAdmin: Acceso completo a todas las funcionalidades.
 - Secretaria: Acceso a funcionalidades de Alumnos y Profesores.
 - Administracion: Acceso a funcionalidades de Clases, Inscripción y Desinscripción.
-- ...
 
 ## Contribuciones
 
