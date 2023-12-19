@@ -1,0 +1,13 @@
+@model AsignarAlumnosViewModel
+
+<h2>Desinscribir Alumnos de Clases</h2>
+
+<form method="post" asp-action="DesinscribirAlumnos">
+    @Html.LabelFor(model => model.SelectedClaseId)
+    @Html.DropDownListFor(model => model.SelectedClaseId, new SelectList(Model.Clases, "ClaseId", "Nombre"), "Seleccionar Clase", new { @class = "form-control" })
+    
+    @Html.LabelFor(model => model.SelectedAlumnoIds)
+    @Html.ListBoxFor(model => model.SelectedAlumnoIds, new MultiSelectList(Model.Alumnos, "AlumnoId", "Nombre"), new { @class = "form-control" })
+
+    <button type="submit">Desinscribir Alumnos</button>
+</form>

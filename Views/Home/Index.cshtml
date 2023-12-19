@@ -1,0 +1,18 @@
+﻿@using System.Security.Claims
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    @if (User.Identity.IsAuthenticated)
+    {
+        <h1 class="display-4">Bienvenido al sistema de gestión de Clases</h1>
+        <p>Tu rol es: @User.FindFirstValue(ClaimTypes.Role)</p>
+    }
+    else
+    {
+        <h1 class="display-4">Bienvenido al sistema de gestión de Clases</h1>
+        <p>Por favor, regístrate o inicia sesión.</p>
+    }
+</div>

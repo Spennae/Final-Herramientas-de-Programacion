@@ -1,0 +1,54 @@
+@model IEnumerable<FinalHerr.Models.Alumno>
+
+@{
+    ViewData["Title"] = "Alumnos";
+}
+
+<h1>Alumnos</h1>
+
+<p>
+    <a asp-action="Create">Registrar nuevo Alumno</a>
+</p>
+
+<form asp-controller="Alumnos" asp-action="Index" method="get">
+    <p>
+        <input type="text" name="Filtro" placeholder="nombre o carrera" />
+        <input type="submit" value="Buscar" />
+    </p>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Correo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Carrera)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Correo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Carrera)
+            </td>
+            <td>
+                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.AlumnoId">Editar</a>
+                 <a class="btn btn-secondary" asp-action="Details" asp-route-id="@item.AlumnoId">Detalles</a>
+                 <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.AlumnoId">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
